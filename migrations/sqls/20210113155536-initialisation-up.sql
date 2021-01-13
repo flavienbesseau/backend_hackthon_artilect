@@ -81,7 +81,7 @@ CREATE TABLE `machine` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` varchar(10000) NOT NULL,
   `url_photo` varchar(4000) NOT NULL,
   `video_link` varchar(255) DEFAULT NULL,
   `notice` varchar(2459) NOT NULL,
@@ -110,9 +110,10 @@ DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `status` int NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `description` varchar(10000) NOT NULL,
   `discord_link` varchar(255) NOT NULL,
+  `image` varchar(1000) NOT NULL,
   `fk_machine_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_project_machine1_idx` (`fk_machine_id`),
@@ -137,7 +138,7 @@ DROP TABLE IF EXISTS `project_competence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `project_competence` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `fk_project_id` int NOT NULL,
   `fk_competence_id` int NOT NULL,
   PRIMARY KEY (`id`),
@@ -169,7 +170,7 @@ CREATE TABLE `user` (
   `name` varchar(255) NOT NULL,
   `url_photo` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `discord_link` varchar(255) DEFAULT NULL,
+  `discord_link` varchar(255) NOT NULL,
   `personality` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
