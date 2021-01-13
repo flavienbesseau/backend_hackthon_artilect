@@ -1,0 +1,26 @@
+{
+  "name": "backend_hackthon_artilect",
+  "version": "1.0.0",
+  "description": "Hackathon jan 21 - Articlect",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flavienbesseau/backend_hackthon_artilect.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flavienbesseau/backend_hackthon_artilect/issues"
+  },
+  "homepage": "https://github.com/flavienbesseau/backend_hackthon_artilect#readme",
+  "dependencies": {
+    "db-migrate": "^0.11.12",
+    "db-migrate-mysql": "^2.1.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
