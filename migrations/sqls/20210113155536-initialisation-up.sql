@@ -28,7 +28,7 @@ CREATE TABLE `competence` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `level` int NOT NULL,
-  `reward` int NOT NULL,
+  `reward` int NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -85,6 +85,7 @@ CREATE TABLE `machine` (
   `url_photo` varchar(4000) NOT NULL,
   `video_link` varchar(255) DEFAULT NULL,
   `notice` varchar(2459) NOT NULL,
+  `discord_link` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
