@@ -88,6 +88,7 @@ CREATE TABLE `machine` (
   `video_link` varchar(255) DEFAULT NULL,
   `notice` varchar(2459) NOT NULL,
   `discord_link` varchar(255) NOT NULL,
+  `intro_sentence` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
