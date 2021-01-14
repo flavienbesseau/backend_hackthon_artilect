@@ -48,6 +48,7 @@ INSERT INTO `mydb`.`project_competence` (`fk_project_id`, `fk_competence_id`) VA
 INSERT INTO `mydb`.`project_competence` (`fk_project_id`, `fk_competence_id`) VALUES ('8', '4');
 INSERT INTO `mydb`.`project_competence` (`fk_project_id`, `fk_competence_id`) VALUES ('9', '4');
 
+
 INSERT INTO `mydb`.`user` (`name`, `url_photo`, `email`, `discord_link`) VALUES ('Barbara G. Ruiz', 'https://images.unsplash.com/photo-1523761415282-2106778cfb5a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80', 'barb.ruiz@gmail.com', 'https://discord.gg/agA2DapU');
 INSERT INTO `mydb`.`user` (`name`, `url_photo`, `email`, `discord_link`) VALUES ('Adib Imad Sabbagh', 'https://images.unsplash.com/photo-1539605480396-a61f99da1041?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80', 'adib.sab@gmail.com', 'https://discord.gg/agA2DapU');
 INSERT INTO `mydb`.`user` (`name`, `url_photo`, `email`, `discord_link`) VALUES ('Sylvie Carignan', 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80', 'sylvie.car@gmail.com', 'https://discord.gg/agA2DapU');
@@ -58,6 +59,7 @@ INSERT INTO `mydb`.`user` (`name`, `url_photo`, `email`, `discord_link`) VALUES 
 INSERT INTO `mydb`.`user` (`name`, `url_photo`, `email`, `discord_link`) VALUES ('Nathifa Luban Essa', 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80', 'nathlubessa@gmail.com', 'https://discord.gg/agA2DapU');
 INSERT INTO `mydb`.`user` (`name`, `url_photo`, `email`, `discord_link`) VALUES ('Jérôme Nadeau', 'https://images.unsplash.com/photo-1573007974656-b958089e9f7b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80', 'jejenadeau@gmail.com', 'https://discord.gg/agA2DapU');
 INSERT INTO `mydb`.`user` (`name`, `url_photo`, `email`, `discord_link`) VALUES ('Amélie Du Trieux', 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80', 'amelimelie@gmail.com', 'https://discord.gg/agA2DapU');
+
 
 INSERT INTO `mydb`.`user_competence` (`fk_user_id`, `fk_competence_id`) VALUES ('1', '4');
 INSERT INTO `mydb`.`user_competence` (`fk_user_id`, `fk_competence_id`) VALUES ('1', '3');
@@ -93,6 +95,7 @@ INSERT INTO `mydb`.`user_project` (`fk_project_id`, `fk_user_id`) VALUES ('4', '
 INSERT INTO `mydb`.`user_project` (`fk_project_id`, `fk_user_id`) VALUES ('7', '6');
 INSERT INTO `mydb`.`user_project` (`fk_project_id`, `fk_user_id`) VALUES ('8', '6');
 
+
 INSERT INTO `mydb`.`personality` (`name`, `url`) VALUES ('wood', 'https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg');
 INSERT INTO `mydb`.`personality` (`name`, `url`) VALUES ('brick', 'https://images.pexels.com/photos/1227511/pexels-photo-1227511.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
 INSERT INTO `mydb`.`personality` (`name`, `url`) VALUES ('cotton', 'https://images.pexels.com/photos/1487713/pexels-photo-1487713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
@@ -109,3 +112,4 @@ INSERT INTO `mydb`.`user_personality` (`fk_user_id`, `fk_personality_id`) VALUES
 INSERT INTO `mydb`.`user_personality` (`fk_user_id`, `fk_personality_id`) VALUES ('8', '3');
 INSERT INTO `mydb`.`user_personality` (`fk_user_id`, `fk_personality_id`) VALUES ('9', '4');
 INSERT INTO `mydb`.`user_personality` (`fk_user_id`, `fk_personality_id`) VALUES ('10', '1');
+
