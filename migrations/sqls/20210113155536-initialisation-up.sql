@@ -74,6 +74,8 @@ UNLOCK TABLES;
 -- Table structure for table `machine`
 --
 
+
+
 DROP TABLE IF EXISTS `machine`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -158,6 +160,15 @@ LOCK TABLES `project_competence` WRITE;
 /*!40000 ALTER TABLE `project_competence` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+DROP TABLE IF EXISTS `personality`;
+CREATE TABLE `mydb`.`personality` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `url` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `user`
 --
@@ -171,10 +182,11 @@ CREATE TABLE `user` (
   `url_photo` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `discord_link` varchar(255) NOT NULL,
-  `personality` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
 
 --
 -- Dumping data for table `user`
@@ -188,6 +200,26 @@ UNLOCK TABLES;
 --
 -- Table structure for table `user_competence`
 --
+
+DROP TABLE IF EXISTS `user_personality`;
+
+CREATE TABLE `user_personality` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fk_user_id` INT NOT NULL,
+  `fk_personality_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_user_personality_1_user_idx` (`fk_user_id` ASC) VISIBLE,
+  INDEX `fk_user_personality_1_personality_idx` (`fk_personality_id` ASC) VISIBLE,
+  CONSTRAINT `fk_user_personality_1_user`
+    FOREIGN KEY (`fk_user_id`)
+    REFERENCES `mydb`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_personality_1_personality`
+    FOREIGN KEY (`fk_personality_id`)
+    REFERENCES `mydb`.`personality` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 DROP TABLE IF EXISTS `user_competence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
