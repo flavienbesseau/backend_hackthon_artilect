@@ -74,6 +74,8 @@ UNLOCK TABLES;
 -- Table structure for table `machine`
 --
 
+
+
 DROP TABLE IF EXISTS `machine`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -81,11 +83,12 @@ CREATE TABLE `machine` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` varchar(10000) NOT NULL,
   `url_photo` varchar(4000) NOT NULL,
   `video_link` varchar(255) DEFAULT NULL,
   `notice` varchar(2459) NOT NULL,
   `discord_link` varchar(255) NOT NULL,
+  `intro_sentence` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -110,9 +113,10 @@ DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `status` int NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `description` varchar(10000) NOT NULL,
   `discord_link` varchar(255) NOT NULL,
+  `image` varchar(1000) NOT NULL,
   `fk_machine_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_project_machine1_idx` (`fk_machine_id`),
@@ -137,7 +141,7 @@ DROP TABLE IF EXISTS `project_competence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `project_competence` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `fk_project_id` int NOT NULL,
   `fk_competence_id` int NOT NULL,
   PRIMARY KEY (`id`),
@@ -157,6 +161,15 @@ LOCK TABLES `project_competence` WRITE;
 /*!40000 ALTER TABLE `project_competence` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+DROP TABLE IF EXISTS `personality`;
+CREATE TABLE `mydb`.`personality` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `url` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `user`
 --
@@ -169,11 +182,12 @@ CREATE TABLE `user` (
   `name` varchar(255) NOT NULL,
   `url_photo` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `discord_link` varchar(255) DEFAULT NULL,
-  `personality` varchar(255) DEFAULT NULL,
+  `discord_link` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
 
 --
 -- Dumping data for table `user`
@@ -187,6 +201,26 @@ UNLOCK TABLES;
 --
 -- Table structure for table `user_competence`
 --
+
+DROP TABLE IF EXISTS `user_personality`;
+
+CREATE TABLE `user_personality` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fk_user_id` INT NOT NULL,
+  `fk_personality_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_user_personality_1_user_idx` (`fk_user_id` ASC) VISIBLE,
+  INDEX `fk_user_personality_1_personality_idx` (`fk_personality_id` ASC) VISIBLE,
+  CONSTRAINT `fk_user_personality_1_user`
+    FOREIGN KEY (`fk_user_id`)
+    REFERENCES `mydb`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_personality_1_personality`
+    FOREIGN KEY (`fk_personality_id`)
+    REFERENCES `mydb`.`personality` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 DROP TABLE IF EXISTS `user_competence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

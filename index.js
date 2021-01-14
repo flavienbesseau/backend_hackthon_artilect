@@ -1,5 +1,7 @@
 const express = require("express");
-const connection = require("./config");
+const cors = require("cors");
+const { connection } = require("./config");
+const api = require("./routes");
 
 const port = 6000;
 
@@ -14,6 +16,12 @@ connection.connect(function (err) {
 });
 
 app.use(express.json());
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/api", api);
 
 app.listen(port, () => {
   console.log(`Server is runing on ${port}`);
