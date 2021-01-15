@@ -123,3 +123,8 @@ INSERT INTO mydb.user_machine (fk_user_id, fk_machine_id) VALUES ('7', '2');
 INSERT INTO mydb.user_machine (fk_user_id, fk_machine_id) VALUES ('8', '5');
 INSERT INTO mydb.user_machine (fk_user_id, fk_machine_id) VALUES ('9', '1');
 INSERT INTO mydb.user_machine (fk_user_id, fk_machine_id) VALUES ('10', '4');
+
+UPDATE `mydb`.`project` SET `status` = 'Bloqué' WHERE (`id` = '2');
+UPDATE `mydb`.`project` SET `status` = 'Bloqué' WHERE (`id` = '5');
+UPDATE `mydb`.`project` SET `status` = 'Terminé' WHERE (`id` = '9');
+UPDATE `mydb`.`project` SET `status` = 'En cours' WHERE (`id` = '8');
