@@ -209,8 +209,8 @@ CREATE TABLE `user_personality` (
   `fk_user_id` INT NOT NULL,
   `fk_personality_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_user_personality_1_user_idx` (`fk_user_id` ASC) VISIBLE,
-  INDEX `fk_user_personality_1_personality_idx` (`fk_personality_id` ASC) VISIBLE,
+  INDEX `fk_user_personality_1_user_idx` (`fk_user_id` ASC),
+  INDEX `fk_user_personality_1_personality_idx` (`fk_personality_id` ASC),
   CONSTRAINT `fk_user_personality_1_user`
     FOREIGN KEY (`fk_user_id`)
     REFERENCES `mydb`.`user` (`id`)
